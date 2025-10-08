@@ -1,5 +1,6 @@
 package com.example.stratify
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,13 @@ class FragmentDashboard : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+
+        // ✅ Tombol "View Full Analysis"
+        binding.btnViewFullAnalysis.setOnClickListener {
+            val intent = Intent(requireContext(), FullAnalysisActivity::class.java)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 

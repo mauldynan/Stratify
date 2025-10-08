@@ -104,7 +104,7 @@
 
                 <!-- View Analysis Button -->
                 <Button
-                    android:id="@+id/btn_view_analysis"
+                    android:id="@+id/btnViewFullAnalysis"
                     android:layout_width="130dp"
                     android:layout_height="30dp"
                     android:text="View full analysis"
