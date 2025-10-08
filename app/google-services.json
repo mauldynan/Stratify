@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "155123440375",
+    "project_id": "mapxml-2025",
+    "storage_bucket": "mapxml-2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155123440375:android:eca7a7fc299e804c5691f2",
+        "android_client_info": {
+          "package_name": "com.example.stratify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwAvX12ygbZp6ubfhMBVvKp2EQeBNGxYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

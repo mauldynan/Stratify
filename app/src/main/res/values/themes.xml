@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.StratifyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+
+        <item name="colorPrimary">@color/maroon_primary</item>
+        <item name="colorPrimaryVariant">@color/maroon_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+    </style>
+</resources>
