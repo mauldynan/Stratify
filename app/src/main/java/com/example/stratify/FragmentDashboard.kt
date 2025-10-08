@@ -20,6 +20,18 @@ class FragmentDashboard : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Re-trigger animasi donut chart setiap kali fragment dibuka kembali
+        binding.donutChart?.let { chart ->
+            if (chart is DonutChartView) {
+                chart.post {
+                    chart.invalidate() // redraw chart
+                }
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

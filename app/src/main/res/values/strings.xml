@@ -35,7 +35,24 @@
 
     <string name="acc">Ikon akun pengguna</string>
 
+    <!-- Bottom navigation menu -->
     <string name="title_home">Home</string>
     <string name="title_scrum">Scrum</string>
     <string name="title_workspace">Workspace</string>
+
+
+    <string name="app_name_analysis">Analysis Apps</string>
+    <string name="title_analysis_apps">Analysis Apps</string>
+    <string name="hint_search">Search</string>
+
+    <!-- Section titles -->
+    <string name="label_monitored_app">Monitored applications</string>
+    <string name="label_recently_viewed">Recently viewed apps</string>
+    <string name="label_recommendation_apps">Recommendation Apps</string>
+
+    <!-- Shopee example -->
+    <string name="app_name_shopee">Shopee</string>
+    <string name="shopee_rating_location">4.6/5 Bintan</string>
+    <string name="shopee_percentages">70%   20%</string>
+    <string name="button_view_full_analysis">Lihat Analysis Lengkap</string>
 </resources>

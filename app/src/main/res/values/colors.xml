@@ -3,6 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="maroon_primary">#760000</color>
+    <color name="dark_grey">#666666</color>
+    <color name="soft_grey">#888888</color>
 
     <color name="soft_yellow">#FFD78F</color>
     <color name="button_yellow">#F8C86A</color>

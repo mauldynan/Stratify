@@ -2,9 +2,10 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,52 +13,158 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name_analysis"
+            android:textColor="@color/maroon_primary"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Search Bar -->
         <EditText
-            android:id="@+id/search_bar"
+            android:id="@+id/et_search_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Cari aplikasi..."
-            android:padding="12dp"
+            android:layout_height="45dp"
+            android:hint="Search"
+            android:paddingStart="25dp"
+            android:background="@drawable/rounded_search_bar"
             android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
-            android:background="@drawable/rounded_search_bar"/>
+            android:drawablePadding="10dp"
+            android:textColorHint="#B0B0B0"/>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:scrollbars="none">
-        </HorizontalScrollView>
-
+        <!-- Monitored Applications -->
         <TextView
+            android:id="@+id/tv_monitored_apps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aplikasi yang Anda Pantau"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="24dp"/>
+            android:text="Monitored applications"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/app_list_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tren Analisis Industri"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="24dp"/>
-
+        <!-- Shopee card -->
         <LinearLayout
+            android:id="@+id/card_shopee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_card_bg"
+            android:elevation="3dp">
+
+            <!-- Shopee Logo -->
+            <ImageView
+                android:layout_width="85dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/shopee_logo" />
+
+            <!-- Shopee Info -->
+            <LinearLayout
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shopee"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.6/5 Bintang"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Donut Chart & Button -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!-- Custom Donut Chart -->
+                <com.example.stratify.DonutChartView
+                    android:id="@+id/donut_chart"
+                    android:layout_width="160dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent" />
+
+                <!-- View Analysis Button -->
+                <Button
+                    android:id="@+id/btn_view_analysis"
+                    android:layout_width="130dp"
+                    android:layout_height="30dp"
+                    android:text="View full analysis"
+                    android:textSize="8dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="@drawable/rounded_button_bg"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Recently viewed apps -->
+        <TextView
+            android:id="@+id/tv_recently_viewed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recently viewed apps"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"/>
+
+        <HorizontalScrollView
+            android:id="@+id/scroll_recently_viewed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView android:src="@drawable/lazada_logo" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="12dp"/>
+                <ImageView android:src="@drawable/amazon_logo" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="12dp"/>
+                <ImageView android:src="@drawable/tokopedia_logo" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="12dp"/>
+                <ImageView android:src="@drawable/bukalapak_logo" android:layout_width="48dp" android:layout_height="48dp" android:layout_marginEnd="12dp"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Recommendation Apps -->
+        <TextView
+            android:id="@+id/tv_recommendation_apps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recommendation Apps"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/black"/>
+
+        <!-- Recommendation list -->
+        <LinearLayout
+            android:id="@+id/layout_recommendation_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_recommendation_app" />
         </LinearLayout>
 
     </LinearLayout>
