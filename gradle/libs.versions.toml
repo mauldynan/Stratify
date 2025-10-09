@@ -1,7 +1,32 @@
 # File: gradle/libs.versions.toml
 
 [versions]
-# Ganti versi ini dengan yang terbaru jika perlu
+# Versi untuk plugin
+agp = "8.10.1"
+kotlin = "2.2.20"
+
+# Versi untuk library bawaan
+coreKtx = "1.17.0"
+junit = "4.13.2"
+junitVersion = "1.3.0"
+espressoCore = "3.7.0"
+appcompat = "1.7.1"
+material = "1.13.0"
+activity = "1.11.0"
+constraintlayout = "2.2.1"
+
+# Versi library yang kita tambahkan
+navigation = "2.9.5"
+lifecycle = "2.9.4"
+recyclerview = "1.4.0"
+glide = "5.0.5"
+
+googleGmsGoogleServices = "4.4.3"
+firebaseAuth = "24.0.1"
+credentials = "1.5.0"
+credentialsPlayServicesAuth = "1.5.0"
+googleid = "1.1.1"
+
 appcompat = "1.6.1"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
@@ -23,7 +48,11 @@ kotlinAndroid = "1.9.23"
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+
 androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credentials" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -36,7 +65,13 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 philjay-mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
 
+androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidApplication" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinAndroid" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+androidX-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
+

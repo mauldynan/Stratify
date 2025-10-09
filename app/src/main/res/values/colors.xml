@@ -23,5 +23,15 @@
     <color name="green">#0FF000</color>
     <color name="red">#FF0000</color>
 
+<!--    WORKSPACE-->
+    <color name="app_red">#760000</color>
+    <color name="app_yellow">#F6C761</color>
+    <color name="app_background">#FCFCFC</color>
+    <color name="status_todo">#3498DB</color>
+    <color name="status_inprogress">#EF7436</color>
+    <color name="status_toverify">#9B59B6</color>
+    <color name="status_done">#2ECC71</color>
+
+    <!--SCRUM-->
 
 </resources>
