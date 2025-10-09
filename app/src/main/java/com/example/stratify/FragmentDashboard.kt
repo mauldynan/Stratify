@@ -22,7 +22,7 @@ class FragmentDashboard : Fragment() {
         binding.btnViewFullAnalysis.setOnClickListener {
             // Menggunakan Navigation Component untuk berpindah ke FullAnalysisFragment
             // Pastikan ID aksi (action ID) sesuai dengan yang ada di nav_graph.xml
-            findNavController().navigate(R.id.action_dashboardFragment_to_fullAnalysisFragment)
+            findNavController().navigate(R.id.action_navigation_home_to_fullAnalysisFragment)
         }
 
         return binding.root

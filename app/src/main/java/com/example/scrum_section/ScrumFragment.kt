@@ -7,20 +7,20 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
-import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.scrum.section.adapter.TaskAdapter
+import com.example.scrum_section.adapter.TaskAdapter
 import com.example.scrum_section.data.TaskRepository
 import com.example.scrum_section.model.Task
 import com.example.scrum_section.util.TaskStatus
-import com.example.scrum_section.AddTaskDialog
 import com.example.stratify.R
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.stratify.databinding.FragmentScrumBinding
 import com.google.android.material.tabs.TabLayout
 
 class ScrumFragment : Fragment() {
+
+    private var _binding: FragmentScrumBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var adapter: TaskAdapter
     private var currentStatus = TaskStatus.ALL
@@ -29,23 +29,33 @@ class ScrumFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_scrum, container, false)
+        _binding = FragmentScrumBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-        val rv = view.findViewById<RecyclerView>(R.id.rvTasks)
-        rv.layoutManager = LinearLayoutManager(requireContext())
+        setupRecyclerView()
+        setupFab()
+        setupTabLayout()
+        setupSearch()
+        setupSortSpinner()
+
+        return view
+    }
+
+    private fun setupRecyclerView() {
         fullTaskList = TaskRepository.getTasksByStatus(currentStatus)
         adapter = TaskAdapter(fullTaskList)
-        rv.adapter = adapter
+        binding.rvTasks.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvTasks.adapter = adapter
+    }
 
-        val fab = view.findViewById<FloatingActionButton>(R.id.btnAddTask)
-        fab.setOnClickListener {
-            AddTaskDialog {
-                refreshData()
-            }.show(parentFragmentManager, "AddTaskDialog")
+    private fun setupFab() {
+        binding.btnAddTask.setOnClickListener {
+            AddTaskDialog { refreshData() }.show(parentFragmentManager, "AddTaskDialog")
         }
+    }
 
-        // --- Setup TabLayout ---
-        val tabLayout = view.findViewById<TabLayout>(R.id.tabLayout)
+    private fun setupTabLayout() {
+        val tabLayout = binding.tabLayout
         val tabData = listOf(
             "All" to R.color.gray,
             "To Do" to R.color.blue,
@@ -60,16 +70,12 @@ class ScrumFragment : Fragment() {
             tabLayout.addTab(tab)
         }
 
-        // 🔴 Garis bawah merah di bawah tab (pakai cara aman untuk semua versi)
         tabLayout.setSelectedTabIndicatorColor(requireContext().getColor(R.color.redw))
         tabLayout.setSelectedTabIndicatorHeight(6)
         tabLayout.setSelectedTabIndicatorGravity(TabLayout.INDICATOR_GRAVITY_BOTTOM)
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                // Garis bawah tetap merah
-                tabLayout.setSelectedTabIndicatorColor(requireContext().getColor(R.color.redw))
-
                 currentStatus = when (tab?.position) {
                     1 -> TaskStatus.TODO
                     2 -> TaskStatus.IN_PROGRESS
@@ -83,21 +89,21 @@ class ScrumFragment : Fragment() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+    }
 
-        // --- SearchView setup ---
-        val searchView = view.findViewById<SearchView>(R.id.searchView)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+    private fun setupSearch() {
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false
             override fun onQueryTextChange(newText: String?): Boolean {
                 filterAndSort(newText)
                 return true
             }
         })
+    }
 
-        // --- Spinner Sort setup ---
-        val spinnerSort = view.findViewById<Spinner>(R.id.spinnerSort)
+    private fun setupSortSpinner() {
         val sortOptions = arrayOf("Terbaru", "Terlama", "A-Z", "Z-A")
-        spinnerSort.adapter = ArrayAdapter(
+        binding.spinnerSort.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             sortOptions
@@ -105,28 +111,25 @@ class ScrumFragment : Fragment() {
             setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         }
 
-        spinnerSort.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinnerSort.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, v: View?, position: Int, id: Long) {
-                filterAndSort(searchView.query.toString())
+                filterAndSort(binding.searchView.query.toString())
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
-
-        return view
     }
 
     private fun refreshData() {
         fullTaskList = TaskRepository.getTasksByStatus(currentStatus)
-        filterAndSort("")
+        filterAndSort(binding.searchView.query.toString())
     }
 
     private fun filterAndSort(query: String?) {
         val searchText = query?.lowercase()?.trim() ?: ""
         val filtered = fullTaskList.filter { it.name.lowercase().contains(searchText) }
 
-        val spinnerSort = view?.findViewById<Spinner>(R.id.spinnerSort)
-        val sortType = spinnerSort?.selectedItem?.toString() ?: "Terbaru"
+        val sortType = binding.spinnerSort.selectedItem?.toString() ?: "Terbaru"
 
         val sorted = when (sortType) {
             "A-Z" -> filtered.sortedBy { it.name.lowercase() }
@@ -136,5 +139,10 @@ class ScrumFragment : Fragment() {
         }
 
         adapter.updateData(sorted)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

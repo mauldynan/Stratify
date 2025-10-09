@@ -1,12 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Rename this style -->
+    <!-- Base application theme. -->
     <style name="Theme.StratifyApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your theme here -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/maroon_primary</item>
+        <item name="colorPrimaryVariant">@color/maroon_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/soft_yellow</item>
+
+        <!-- Set the default style for all TextInputLayouts -->
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+    </style>
+
+    <!-- Custom Style for TextInputLayout -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_input_layout_stroke_color</item>
+        <item name="hintTextColor">@color/text_input_layout_stroke_color</item>
     </style>
 
     <style name="CustomFAB" parent="Widget.MaterialComponents.FloatingActionButton">
