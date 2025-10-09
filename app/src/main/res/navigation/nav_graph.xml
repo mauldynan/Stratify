@@ -5,25 +5,49 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/dashboardFragment">
 
+    <!-- 🏠 Dashboard Fragment -->
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.stratify.FragmentDashboard"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_dashboard">
+
+        <!-- Aksi navigasi ke Full Analysis -->
         <action
             android:id="@+id/action_dashboardFragment_to_fullAnalysisFragment"
             app:destination="@id/fullAnalysisFragment" />
+
+        <!-- Aksi navigasi ke Workspace Detail -->
+        <action
+            android:id="@+id/action_dashboardFragment_to_workspaceDetailFragment"
+            app:destination="@id/workspaceDetailFragment" />
     </fragment>
 
+    <!-- 👤 Profile Fragment -->
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.stratify.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
+    <!-- 📊 Full Analysis Fragment -->
     <fragment
         android:id="@+id/fullAnalysisFragment"
         android:name="com.example.stratify.FullAnalysisFragment"
-        android:label="activity_full_analysis"
+        android:label="fragment_full_analysis"
         tools:layout="@layout/fragment_full_analysis" />
+
+    <!-- 🧩 Workspace Detail Fragment -->
+    <fragment
+        android:id="@+id/workspaceDetailFragment"
+        android:name="com.example.stratify.WorkspaceDetailFragment"
+        android:label="fragment_workspace_detail"
+        tools:layout="@layout/fragment_workspace_detail">
+
+        <!-- Argumen Workspace dikirim via Safe Args -->
+        <argument
+            android:name="workspace"
+            app:argType="com.example.stratify.Workspace" />
+    </fragment>
+
 </navigation>

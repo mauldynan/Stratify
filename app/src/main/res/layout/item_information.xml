@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/app_yellow"
+    app:cardCornerRadius="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_info_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/app_red"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12/05/2025"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <FrameLayout
+            android:id="@+id/details_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/iv_action_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_info_date">
+
+            <TextView
+                android:id="@+id/tv_info_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+            <EditText
+                android:id="@+id/et_info_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_red_stroke"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"/>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/iv_delete_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_close_circle" app:tint="@color/app_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            android:contentDescription="Hapus Item"/>
+
+        <ImageView
+            android:id="@+id/iv_action_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_delete_icon" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="Ikon Aksi"
+            android:src="@drawable/ic_radio_button_unchecked" />
+
+        <TextView
+            android:id="@+id/tv_saved_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved"
+            android:textColor="@color/app_red"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_action_icon"
+            app:layout_constraintStart_toStartOf="@+id/iv_action_icon"
+            app:layout_constraintTop_toBottomOf="@+id/iv_action_icon"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
