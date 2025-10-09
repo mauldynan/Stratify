@@ -9,11 +9,21 @@
         android:id="@+id/dashboardFragment"
         android:name="com.example.stratify.FragmentDashboard"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_fullAnalysisFragment"
+            app:destination="@id/fullAnalysisFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.stratify.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/fullAnalysisFragment"
+        android:name="com.example.stratify.FullAnalysisFragment"
+        android:label="activity_full_analysis"
+        tools:layout="@layout/fragment_full_analysis" />
 </navigation>

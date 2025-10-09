@@ -50,7 +50,7 @@ class DonutChartView @JvmOverloads constructor(
 
     private val subTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.GRAY
-        textSize = 14f
+        textSize = 12f
         textAlign = Paint.Align.CENTER
     }
 
@@ -89,7 +89,7 @@ class DonutChartView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        val cx = width / 3f
+        val cx = width / 4f
         val cy = height / 2f
         val radius = ((width.coerceAtMost(height) / 2f) - strokeWidth * 1.5f) * 0.9f
         val rect = RectF(cx - radius, cy - radius, cx + radius, cy + radius)

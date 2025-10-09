@@ -1,11 +1,11 @@
 package com.example.stratify
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController // Import yang benar
 import com.example.stratify.databinding.FragmentDashboardBinding
 
 class FragmentDashboard : Fragment() {
@@ -21,8 +21,9 @@ class FragmentDashboard : Fragment() {
 
         // ✅ Tombol "View Full Analysis"
         binding.btnViewFullAnalysis.setOnClickListener {
-            val intent = Intent(requireContext(), FullAnalysisActivity::class.java)
-            startActivity(intent)
+            // Menggunakan Navigation Component untuk berpindah ke FullAnalysisFragment
+            // Pastikan ID aksi (action ID) sesuai dengan yang ada di nav_graph.xml
+            findNavController().navigate(R.id.action_dashboardFragment_to_fullAnalysisFragment)
         }
 
         return binding.root

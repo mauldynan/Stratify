@@ -2,7 +2,12 @@ package com.example.stratify
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
@@ -11,15 +16,30 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.ValueFormatter
 
-class FullAnalysisActivity : AppCompatActivity() {
+class FullAnalysisFragment : Fragment() {
 
     private lateinit var lineChart: LineChart
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_full_analysis)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_full_analysis, container, false)
+    }
 
-        lineChart = findViewById(R.id.lineChartSentiment)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 🔹 Tombol Back
+        val btnBack = view.findViewById<ImageView>(R.id.btnBack)
+        btnBack.setOnClickListener {
+            // Gunakan Navigation Component untuk kembali ke fragment sebelumnya
+            findNavController().popBackStack()
+        }
+
+        // 🔹 Inisialisasi LineChart
+        lineChart = view.findViewById(R.id.lineChartSentiment)
         setupLineChart()
         loadChartData()
     }
@@ -34,6 +54,9 @@ class FullAnalysisActivity : AppCompatActivity() {
             setPinchZoom(true)
             animateX(1000)
             axisRight.isEnabled = false
+
+            // 🔹 Menambahkan jarak di bagian bawah chart
+            extraBottomOffset = 20f
         }
 
         lineChart.xAxis.apply {
@@ -57,11 +80,15 @@ class FullAnalysisActivity : AppCompatActivity() {
             form = Legend.LegendForm.LINE
             textSize = 12f
             textColor = Color.BLACK
+            horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER // Memusatkan legenda
+            verticalAlignment = Legend.LegendVerticalAlignment.BOTTOM // Menempatkan legenda di bawah chart
+            orientation = Legend.LegendOrientation.HORIZONTAL
+            setDrawInside(false) // Memastikan legenda berada di luar chart
         }
     }
 
     private fun loadChartData() {
-        // Ganti ini dengan data dari backend kalau sudah tersedia
+        // 🔹 Contoh data dummy
         val positiveEntries = listOf(
             Entry(1f, 1f),
             Entry(2f, 2f),
@@ -105,6 +132,6 @@ class FullAnalysisActivity : AppCompatActivity() {
 
         val lineData = LineData(positiveSet, negativeSet)
         lineChart.data = lineData
-        lineChart.invalidate() // Refresh chart
+        lineChart.invalidate() // 🔹 Refresh chart
     }
 }
