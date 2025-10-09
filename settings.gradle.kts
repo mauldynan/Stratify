@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Stratify"
+rootProject.name = "SCRUM_SECTION"
 include(":app")
