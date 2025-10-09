@@ -1,15 +1,16 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.gms.google.services)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+    id("androidx.navigation.safeargs.kotlin") // Seharusnya seperti ini, bukan 'alias(...)'
 }
 
 android {
-    namespace = "com.example.stratify"
+    namespace = "com.example.workspave"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.stratify"
+        applicationId = "com.example.workspave"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -28,12 +29,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        // Ganti ke Java 17, standar baru untuk Android
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
+    // Tambahkan ini untuk mengaktifkan ViewBinding
     buildFeatures {
         viewBinding = true
     }
@@ -41,22 +44,27 @@ android {
 
 dependencies {
 
+    // Dependensi bawaan
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.firebase.auth)
-    implementation(libs.androidx.credentials)
-    implementation(libs.androidx.credentials.play.services.auth)
-    implementation(libs.googleid)
+
+    // Dependensi yang kita tambahkan (sekarang pakai 'libs')
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.glide)
+
+    // Dependensi untuk testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation ("com.google.android.material:material:1.11.0")
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    //foto bulat
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
+    implementation("com.google.code.gson:gson:2.10.1")
 }

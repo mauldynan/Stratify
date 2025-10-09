@@ -2,15 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="maroon_primary">#760000</color>
-    <color name="dark_grey">#666666</color>
-    <color name="soft_grey">#888888</color>
-
-    <color name="soft_yellow">#FFD78F</color>
-    <color name="button_yellow">#F8C86A</color>
-    <color name="text_yellow">#EFC26A</color>
-    <color name="text_grey">#868686</color>
-    <color name="green">#0FF000</color>
-    <color name="red">#FF0000</color>
-
+    <color name="app_red">#760000</color>
+    <color name="app_yellow">#F6C761</color>
+    <color name="app_background">#FCFCFC</color>
+    <color name="status_todo">#3498DB</color>
+    <color name="status_inprogress">#EF7436</color>
+    <color name="status_toverify">#9B59B6</color>
+    <color name="status_done">#2ECC71</color>
 </resources>
