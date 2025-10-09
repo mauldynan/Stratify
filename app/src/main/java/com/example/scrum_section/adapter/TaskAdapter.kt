@@ -7,7 +7,7 @@ import android.widget.*
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stratify.R
-import com.example.scrum_section.EditTaskDialog     // Corrected
+import com.example.scrum_section.EditTaskDialog
 import com.example.scrum_section.TaskDetailDialog   // Assuming this is also in the 'view' package
 import com.example.scrum_section.model.Task             // Corrected
 import com.example.scrum_section.util.TaskStatus         // Corrected
