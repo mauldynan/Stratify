@@ -9,14 +9,10 @@
     <color name="purple_500">#7F3FBF</color>
     <color name="purple_700">#5E2E8A</color>
     <color name="teal_200">#03DAC5</color>
-    <color name="black">#000000</color>
-    <color name="white">#FFFFFF</color>
-    <color name="red">#B71C1C</color>
     <color name="gray">#808080</color>
     <color name="blue">#2196F3</color>
     <color name="orange">#FF9800</color>
     <color name="purple">#9C27B0</color>
-    <color name="green">#4CAF50</color>
     <color name="orange_bright">#FFA726</color>
     <color name="redw">#760000</color> 
 
