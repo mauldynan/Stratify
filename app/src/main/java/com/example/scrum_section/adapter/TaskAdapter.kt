@@ -1,4 +1,4 @@
-package com.example.scrum_section.adapter
+package com.example.scrum.section.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.scrum_section.R
-import com.example.scrum_section.EditTaskDialog
-import com.example.scrum_section.TaskDetailDialog
-import com.example.scrum_section.model.Task
-import com.example.scrum_section.util.TaskStatus
-import com.example.scrum_section.data.TaskRepository
+import com.example.stratify.R
+import com.example.scrum_section.EditTaskDialog     // Corrected
+import com.example.scrum_section.TaskDetailDialog   // Assuming this is also in the 'view' package
+import com.example.scrum_section.model.Task             // Corrected
+import com.example.scrum_section.util.TaskStatus         // Corrected
+import com.example.scrum_section.data.TaskRepository     // Corrected
+
 
 class TaskAdapter(private var tasks: List<Task>) :
     RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {

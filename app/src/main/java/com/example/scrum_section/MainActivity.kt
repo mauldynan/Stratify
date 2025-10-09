@@ -1,19 +1,18 @@
-package com.example.scrum_section
+// File: app/src/main/java/com/example/stratify/MainActivity.kt
+
+package com.example.stratify // Corrected package name
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.scrum_section.ScrumFragment
+import com.example.stratify.R // Make sure this is the correct R class
+import com.example.scrum_section.ScrumFragment // Example: Assuming ScrumFragment is in a 'ui' sub-package. Adjust if necessary.
 
-class MainActivity : AppCompatActivity() {
+class ainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        setTheme(R.style.Theme_SCRUM_SECTION) // ensure theme loaded before setContentView
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // load ScrumFragment as main content
+        // The check for savedInstanceState is good practice to prevent re-adding the fragment on configuration changes.
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, ScrumFragment())

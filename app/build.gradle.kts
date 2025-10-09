@@ -27,6 +27,13 @@ android {
             )
         }
     }
+
+    sourceSets{
+        getByName("main"){
+            java.srcDirs("src/main/java", "src/scrum_section/java")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -40,7 +47,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -56,8 +62,7 @@ dependencies {
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
-    implementation ("com.google.android.material:material:1.11.0")
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
+    // Using the version from your libs.versions.toml file
+    implementation(libs.philjay.mpandroidchart)
 }

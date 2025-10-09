@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.example.scrum_section.data.TaskRepository
 import com.example.scrum_section.model.Task
+import com.example.stratify.R
 
 class EditTaskDialog(private val task: Task, private val onUpdated: () -> Unit) : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

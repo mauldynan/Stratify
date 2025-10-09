@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import com.example.scrum_section.data.TaskRepository
 import com.example.scrum_section.model.Task
 import com.example.scrum_section.util.TaskStatus
+import com.example.stratify.R
 
 class AddTaskDialog(private val onTaskAdded: () -> Unit) : DialogFragment() {
 

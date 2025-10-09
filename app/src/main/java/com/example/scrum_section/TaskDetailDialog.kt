@@ -8,7 +8,7 @@ import android.view.Window
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.example.scrum_section.model.Task
-import com.example.scrum_section.R
+import com.example.stratify.R
 
 class TaskDetailDialog(private val task: Task) : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
