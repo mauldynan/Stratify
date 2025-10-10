@@ -6,13 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.stratify.databinding.ActivityMainBinding
+import com.example.stratify.databinding.ActivityMainBinding // Menggunakan binding yang sesuai dengan layout container
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding // Menggunakan ActivityMainAppContainerBinding
     private lateinit var navController: NavController
 
     private val auth: FirebaseAuth by lazy {
@@ -31,10 +31,32 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         // 3. Dapatkan referensi BottomNavigationView dari binding
-        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
+        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation // Menggunakan binding untuk BottomNavigationView
 
-        // 4. Hubungkan BottomNavigationView dengan NavController.
-        // Ini secara otomatis menangani klik item navigasi.
+        // 4. Hubungkan BottomNavigationView dengan NavController untuk Fragment (Home & Scrum)
         bottomNavigationView.setupWithNavController(navController)
+
+        // 5. Tambahan Logika Khusus untuk Navigasi Antar Activity
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    // Navigasi ke Home Fragment
+                    navController.navigate(item.itemId)
+                    true
+                }
+                R.id.navigation_scrum -> {
+                    // Navigasi ke Scrum Fragment
+                    navController.navigate(item.itemId)
+                    true
+                }
+                R.id.navigation_workspace -> {
+                    // ✅ Navigasi Khusus: Pindah ke MainWorkspace Activity
+                    val intent = Intent(this, MainWorkspace::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
