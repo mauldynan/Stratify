@@ -22,6 +22,7 @@
     <color name="text_grey">#868686</color>
     <color name="green">#0FF000</color>
     <color name="red">#FF0000</color>
+    <color name="grey_300">#E0E0E0</color>
 
 <!--    WORKSPACE-->
     <color name="app_red">#760000</color>
