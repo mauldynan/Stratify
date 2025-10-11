@@ -1,4 +1,4 @@
-package com.example.scrum.section.adapter
+package com.example.scrum_section.adapter
 
 import android.view.LayoutInflater
 import android.view.View

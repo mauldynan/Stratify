@@ -92,6 +92,8 @@
                 app:boxCornerRadiusTopEnd="24dp"
                 app:boxCornerRadiusBottomStart="24dp"
                 app:boxCornerRadiusBottomEnd="24dp"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:hintTextColor="@color/text_input_layout_stroke_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_login">
@@ -118,6 +120,8 @@
                 app:boxCornerRadiusTopEnd="24dp"
                 app:boxCornerRadiusBottomStart="24dp"
                 app:boxCornerRadiusBottomEnd="24dp"
+                app:boxStrokeColor="@color/text_input_layout_stroke_color"
+                app:hintTextColor="@color/text_input_layout_stroke_color"
                 app:layout_constraintEnd_toEndOf="@+id/email_input_layout"
                 app:layout_constraintStart_toStartOf="@+id/email_input_layout"
                 app:layout_constraintTop_toBottomOf="@+id/email_input_layout">

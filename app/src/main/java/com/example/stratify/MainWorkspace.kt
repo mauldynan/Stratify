@@ -24,7 +24,7 @@ class MainWorkspace : AppCompatActivity() {
         // Ambil NavController
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph_workspace)
 
         // Atur halaman awal berdasarkan kondisi apakah list workspace ada isinya
         if (hasWorkspace) {
