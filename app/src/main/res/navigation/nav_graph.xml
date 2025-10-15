@@ -1,24 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/navigation_home">
 
+    <!-- Activity Destination for Login -->
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.stratify.LoginActivity"
+        tools:layout="@layout/activity_login" />
+
+    <!-- Global action for logging out -->
+    <action
+        android:id="@+id/action_global_loginActivity"
+        app:destination="@id/loginActivity"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/action_global_profileEditFragment"
+        app:destination="@id/profileEditFragment" />
+    <action
+        android:id="@+id/action_global_accountFragment"
+        app:destination="@id/accountFragment" />
+    <action
+        android:id="@+id/action_global_languagesFragment"
+        app:destination="@id/languagesFragment" />
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.stratify.FragmentDashboard"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_dashboard" >
+        tools:layout="@layout/fragment_dashboard">
         <action
             android:id="@+id/action_dashboardFragment_to_fullAnalysisFragment"
             app:destination="@id/fullAnalysisFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_profileOptionsFragment"
+            app:destination="@id/profileOptionsFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_profileEditFragment"
+            app:destination="@id/profileEditFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_languagesFragment"
+            app:destination="@id/languagesFragment" />
     </fragment>
 
+    <dialog
+        android:id="@+id/profileOptionsFragment"
+        android:name="com.example.stratify.ProfileOptionsFragment"
+        android:label="ProfileOptionsFragment"
+        tools:layout="@layout/fragment_profile_options" />
+
+    <!--
     <fragment
         android:id="@+id/navigation_scrum"
         android:name="com.example.scrum_section.ScrumFragment"
         android:label="@string/title_scrum"
         tools:layout="@layout/fragment_scrum" />
+    -->
 
     <fragment
         android:id="@+id/navigation_workspace"
@@ -91,5 +135,32 @@
             android:name="workspace"
             app:argType="com.example.stratify.Workspace" />
     </fragment>
+
+    <fragment
+        android:id="@+id/profileEditFragment"
+        android:name="com.example.stratify.ProfileEditFragment"
+        android:label="fragment_profile_edit"
+        tools:layout="@layout/fragment_profile_edit" />
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.stratify.view.profile.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_accountDeleteFragment"
+            app:destination="@id/accountDeleteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountDeleteFragment"
+        android:name="com.example.stratify.AccountDeleteFragment"
+        android:label="fragment_account_delete"
+        tools:layout="@layout/fragment_account_delete" />
+    <fragment
+        android:id="@+id/languagesFragment"
+        android:name="com.example.stratify.LanguagesFragment"
+        android:label="fragment_languages"
+        tools:layout="@layout/fragment_languages" />
 
 </navigation>

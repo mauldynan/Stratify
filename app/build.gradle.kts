@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
+    implementation(libs.firebase.storage)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
@@ -85,3 +86,5 @@ dependencies {
 
     implementation(libs.philjay.mpandroidchart)
 }
+
+// This is a harmless comment to trigger a project rebuild and clear the cache.

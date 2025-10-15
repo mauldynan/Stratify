@@ -2,14 +2,17 @@ package com.example.scrum_section
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import com.example.stratify.ProfileOptionsFragment
 import com.example.stratify.R
 import com.example.stratify.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ProfileOptionsFragment.OnOptionSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         // We are replacing setupWithNavController with a manual listener
         // to gain more control and fix the navigation issue.
@@ -43,5 +46,17 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onProfileEditSelected() {
+        navController.navigate(R.id.profileEditFragment)
+    }
+
+    override fun onAccountSelected() {
+        navController.navigate(R.id.accountFragment)
+    }
+
+    override fun onLanguagesSelected() {
+        navController.navigate(R.id.languagesFragment)
     }
 }
